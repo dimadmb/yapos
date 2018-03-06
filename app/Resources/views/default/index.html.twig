@@ -1,0 +1,22 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <div id="wrapper">
+        <div id="container">
+		
+		
+{{dump()}}
+		
+		{#% for item in xml.response.results.grouping.group %}
+		
+			{{dump(item.doc)}}
+		
+		{% endfor %#}
+
+        </div>
+    </div>
+{% endblock %}
+
+{% block stylesheets %}
+
+{% endblock %}

@@ -1,0 +1,69 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+
+<style>
+.report_excel td, .report_excel th {
+	border:1px solid #ddd;
+}
+.red {
+	color:#d51324;
+}		
+.green {
+	color:#28af07;
+}		
+.yellow {
+	color:#c6c378;
+}	
+
+</style>
+
+
+    <div id="wrapper">
+        <div id="container">
+{{dump()}}		
+		
+<table class="table report_excel">
+
+	<tr>
+		
+		<td></td>
+		<td></td>
+		{% for date in arr_dates %}
+		<td>
+			{{date}}
+		</td>
+		{% endfor %}	
+	
+	</tr>
+
+
+{% for id,key in arr_keys %}
+
+	<tr>
+		
+		<td>{{id}}</td>
+		<td>{{key}}</td>
+		{% for date in arr_dates %}
+		<td>
+			{% if array[key][date] is defined %} 
+				{{array[key][date]}}
+			{% endif %}
+		</td>
+		{% endfor %}	
+	
+	</tr>
+
+{% endfor %}	
+
+	
+</table>
+
+
+        </div>
+    </div>
+{% endblock %}
+
+{% block stylesheets %}
+
+{% endblock %}
